@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-function AddNewBlog({ openDialog, setOpenDialog, loading, setLoading, blogFormData, setBlogFormData }) {
+function AddNewBlog({ openDialog, setOpenDialog, loading, setLoading, blogFormData, setBlogFormData, handleSaveBlogData }) {
     return (
         <Fragment>
             <div>
@@ -60,7 +60,7 @@ function AddNewBlog({ openDialog, setOpenDialog, loading, setLoading, blogFormDa
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button type="button">Save changes</Button>
+                        <Button onClick={handleSaveBlogData} type="button">Save changes</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
