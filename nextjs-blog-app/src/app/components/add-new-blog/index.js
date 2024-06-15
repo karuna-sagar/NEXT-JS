@@ -1,5 +1,6 @@
-"use client";
-import { Button } from "@/components/ui/button";
+'use client'
+
+import { Fragment } from "react"
 import {
     Dialog,
     DialogContent,
@@ -9,17 +10,19 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
-export default function BlogOverview() {
-    const [openDialog, setOpenDialog] = useState(false);
+
+function AddNewBlog({ openDialog, setOpenDialog, loading, setLoading, blogFormData, setBlogFormData }) {
     return (
-        <div className="min-h-screen flex flex-col gap-10  bg-gradient-to-r from-purple-500 to-blue-600 p-6">
+        <Fragment>
             <div>
                 <Button onClick={() => setOpenDialog(true)}>Add New Blog</Button>
             </div>
-            <div>Blog List Section</div>
+
+
             <Dialog
                 open={openDialog}
                 onOpenChange={setOpenDialog}
@@ -36,7 +39,9 @@ export default function BlogOverview() {
                             >
                                 Title
                             </Label>
-                            <Input
+                            <Input name='title' placeholder='Enter the title' value={blogFormData.title} onChange={event => (
+                                setBlogFormData({ ...blogFormData, title: event.target.value })
+                            )}
                                 id="title"
                                 className="col-span-3"
                             />
@@ -48,7 +53,7 @@ export default function BlogOverview() {
                             >
                                 Description
                             </Label>
-                            <Input
+                            <Input name='description' placeholder='Enter the Description' value={blogFormData.description} onChange={event => setBlogFormData({ ...blogFormData, description: event.target.value })}
                                 id="description"
                                 className="col-span-3"
                             />
@@ -59,6 +64,7 @@ export default function BlogOverview() {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
-        </div>
-    );
+        </Fragment>
+    )
 }
+export default AddNewBlog

@@ -1,4 +1,4 @@
-import BlogOverview from "../components/blog-overview/page";
+import BlogOverview from "../components/blog-overview";
 
 function Blogs() {
     return (
