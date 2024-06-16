@@ -4,10 +4,7 @@ dotenv.config({ path: './config.env' });
 
 const connectToDB = async () => {
     mongoose.connect(process.env.DATABASE_LOCAL, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false
+
     }).then(() => console.log('Connected Database'))
 }
 
