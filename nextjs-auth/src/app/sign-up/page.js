@@ -1,3 +1,4 @@
+'use client'
 import { Label } from "@/components/ui/label"
 import { initialSignUpFormData, userRegistrationformControls } from "../utils"
 import CommonFormElement from "@/components/form-element/page"
