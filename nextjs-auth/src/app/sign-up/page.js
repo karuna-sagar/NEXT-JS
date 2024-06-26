@@ -1,22 +1,30 @@
 import { Label } from "@/components/ui/label"
-import { userRegistrationformControls } from "../utils"
+import { initialSignUpFormData, userRegistrationformControls } from "../utils"
+import CommonFormElement from "@/components/form-element/page"
+import { useState } from "react"
 
 function SignUp() {
+    const [signUpFormData, setSignUpFormData] = useState(initialSignUpFormData)
     return (
         <div> <h1> Please Do Registration</h1>
             <form>
-                {userRegistrationformControls.map(controlItem
-                    < div >
-                    <Label>
-                        {controlItem.label}
-                    </Label>{
-                    controlItem.inputType === "input" ? <input type={controlItem.inputType} />
+                {userRegistrationformControls.map(controlItem =>
+                    <div>
+                        <Label>
+                            {controlItem.label}
+                        </Label>{
+                            <CommonFormElement
+                                value={signUpFormData[controlItem.name]} currentItem={controlItem} onChange={event => {
+                                    setSignUpFormData({ ...signUpFormData, userName: event.target.value, })
+                                }} />
+
+                        }
+                    </div>
+
+                )
                 }
-            </div>
-    )
-}
-        </form >
-        
+            </form >
+
         </div >
     )
 }

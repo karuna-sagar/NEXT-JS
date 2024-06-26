@@ -1,3 +1,5 @@
+import { Passero_One } from "next/font/google"
+
 export const userRegistrationformControls = [
     {
         name: 'userName',
@@ -22,3 +24,9 @@ export const userRegistrationformControls = [
     },
 
 ]
+
+export const initialSignUpFormData = {
+    userName: "",
+    email: "",
+    password: ""
+}
