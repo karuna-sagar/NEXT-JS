@@ -6,6 +6,7 @@ import { useState } from "react"
 
 function SignUp() {
     const [signUpFormData, setSignUpFormData] = useState(initialSignUpFormData)
+    console.log(signUpFormData)
     return (
         <div> <h1> Please Do Registration</h1>
             <form>
@@ -16,7 +17,7 @@ function SignUp() {
                         </Label>{
                             <CommonFormElement
                                 value={signUpFormData[controlItem.name]} currentItem={controlItem} onChange={event => {
-                                    setSignUpFormData({ ...signUpFormData, userName: event.target.value, })
+                                    setSignUpFormData({ ...signUpFormData, [event.target.name]: event.target.value, })
                                 }} />
 
                         }
