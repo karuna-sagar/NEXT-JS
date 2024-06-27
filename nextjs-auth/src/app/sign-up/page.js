@@ -1,10 +1,16 @@
 'use client'
 import { Label } from "@/components/ui/label"
 import { initialSignUpFormData, userRegistrationformControls } from "../utils"
+import { Button } from "@/components/ui/button"
+
 import CommonFormElement from "@/components/form-element/page"
 import { useState } from "react"
 
+
 function SignUp() {
+    function handleSignUpBtnValid() {
+        return Object.keys(signUpFormData).every(key => signUpFormData[key] !== '')
+    }
     const [signUpFormData, setSignUpFormData] = useState(initialSignUpFormData)
     console.log(signUpFormData)
     return (
@@ -25,6 +31,7 @@ function SignUp() {
 
                 )
                 }
+                <Button disabled={!handleSignUpBtnValid()} className="disabled:opacity-65" type="submit">Sign Up</Button>
             </form >
 
         </div >

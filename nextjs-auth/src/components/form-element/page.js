@@ -10,6 +10,7 @@ function CommonFormElement({ currentItem, onChange, value }) {
                 placeholder={currentItem.placeholder}
                 value={value}
                 onChange={onChange}
+                type={currentItem.type}
             />
             break;
         default:
